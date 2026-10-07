@@ -8,3 +8,5 @@ greetings('Alexandra')
 greetings('Wil')
 greetings()
 greetings(42)
+
+# python cell06\ex03\greetings_for_all.py

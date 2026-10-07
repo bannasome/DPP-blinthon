@@ -10,3 +10,5 @@ if not args:
 else:
     for arg in args:
         print(downcase_it(arg))
+
+# python cell06\ex02\downcase_all.py "HELLO WORLD" "I understood Arrays well!"
