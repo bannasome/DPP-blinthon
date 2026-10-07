@@ -18,3 +18,6 @@ else:
             enlarge(arg)
         else:
             print(arg)
+
+
+# python cell06\ex04\methods_everywhere.py 'lol' 'physically' 'backpack'

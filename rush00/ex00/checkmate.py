@@ -1,0 +1,60 @@
+﻿def checkmate(board):
+    if not board or not isinstance(board, str):
+        return
+    lines = [line for line in board.strip('\n').split('\n') if line]
+    if not lines:
+        return
+    n = len(lines)
+    grid = [list(line) for line in lines]
+    for row in grid:
+        if len(row) != n:
+            return
+# ----------------------------------------------------------------------
+                         #   ค้นหาตำแหน่ง king
+    king_pos = None   #สร้างตัวแปรที่ว่างเปล่า
+    for r in range(n): #range(n): ฟังก์ชันสร้างลำดับตัวเลขตั้งแต่งองค์ประกอบที่ 0 ถึง n-1 เช่น range(4) จะได้ตัวเลข 0, 1, 2, 3
+        for c in range(n):
+            if grid[r][c] == 'K':
+                king_pos = (r, c)
+                break
+        if king_pos:
+            break
+
+    if not king_pos:
+        print("error")
+        return
+# --------------------------------------------------------------------------
+    kr, kc = king_pos
+
+    diag_dirs = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+    for dr, dc in diag_dirs:
+        r, c = kr + dr, kc + dc
+        step = 1
+        while 0 <= r < n and 0 <= c < n:
+            piece = grid[r][c]
+            if piece != '.':
+                if piece in ('Q', 'B'):
+                    print("Success")
+                    return
+                if step == 1 and dr == 1 and piece == 'P':
+                    print("Success")
+                    return
+                break
+            r += dr
+            c += dc
+            step += 1
+
+    ortho_dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    for dr, dc in ortho_dirs:
+        r, c = kr + dr, kc + dc
+        while 0 <= r < n and 0 <= c < n:
+            piece = grid[r][c]
+            if piece != '.':
+                if piece in ('Q', 'R'):
+                    print("Success")
+                    return
+                break
+            r += dr
+            c += dc
+
+    print("Fail")

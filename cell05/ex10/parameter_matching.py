@@ -10,3 +10,6 @@ else:
         print("Good job!")
     else:
         print("Nope, sorry...") 
+
+# python cell05\ex10\parameter_matching.py "Hello"
+# python cell05\ex10\parameter_matching.py

@@ -11,4 +11,4 @@ else:
         print("z" * z_count)
         
 # python cell05\ex12\string_are_arrays.py "The character Z is not found in this string"
-# python cell05\ex12\string_are_arrays.py "Zaz visits the zoo with Zazie"
+# python cell05/ex12/string_are_arrays.py "Zaz visits the zoo with Zazie"
