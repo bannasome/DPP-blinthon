@@ -2,10 +2,10 @@
 
 def main():
     board = """\
-R...
+....
 .K..
-..P.
-....\
+...P
+R...\
 """
     checkmate(board)
 

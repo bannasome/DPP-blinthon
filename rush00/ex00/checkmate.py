@@ -1,13 +1,18 @@
-﻿def checkmate(board):
+﻿import time
+
+def checkmate(board):
     if not board or not isinstance(board, str):
+        print("error 1")
         return
     lines = [line for line in board.strip('\n').split('\n') if line]
     if not lines:
+        print("เช็คข้อความสำเร็จ")
         return
     n = len(lines)
-    grid = [list(line) for line in lines]
-    for row in grid:
-        if len(row) != n:
+    grid = [list(line) for line in lines] # แปลงจากสตริงเป็น ['R', '.', '.', '.']
+    for row in grid: # รอบที่ 1: row จะได้ ['R', '.', '.', '.']
+        if len(row) != n: 
+            print("ตารางไม่ถูกต้อง")
             return
 # ----------------------------------------------------------------------
                          #   ค้นหาตำแหน่ง king
@@ -21,7 +26,7 @@
             break
 
     if not king_pos:
-        print("error")
+        print("ไม่สามารถหาตำแหน่งของ King ได้")
         return
 # --------------------------------------------------------------------------
     kr, kc = king_pos
@@ -32,6 +37,8 @@
         step = 1
         while 0 <= r < n and 0 <= c < n:
             piece = grid[r][c]
+            time.sleep(0.5)  # เพิ่มการหน่วงเวลา 0.5 วินาที  
+            print(f"Checking position ({r}, {c}): {piece}")
             if piece != '.':
                 if piece in ('Q', 'B'):
                     print("Success")
@@ -44,11 +51,15 @@
             c += dc
             step += 1
 
+# ---------------------------------------------------------------------------
+
     ortho_dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
     for dr, dc in ortho_dirs:
         r, c = kr + dr, kc + dc
         while 0 <= r < n and 0 <= c < n:
             piece = grid[r][c]
+            time.sleep(0.5)  # เพิ่มการหน่วงเวลา 0.5 วินาที  
+            print(f"Checking position ({r}, {c}): {piece}")
             if piece != '.':
                 if piece in ('Q', 'R'):
                     print("Success")
@@ -58,3 +69,4 @@
             c += dc
 
     print("Fail")
+#  ---------------------------------------------------------------------------
