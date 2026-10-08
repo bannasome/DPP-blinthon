@@ -2,10 +2,11 @@
 
 def main():
     board = """\
-....
-.K..
-...P
-R...\
+11111
+22222
+11K11
+1111P
+AAAAQ\
 """
     checkmate(board)
 

@@ -6,7 +6,7 @@ def checkmate(board):
         return
     lines = [line for line in board.strip('\n').split('\n') if line]
     if not lines:
-        print("เช็คข้อความสำเร็จ")
+        print("เช็คข้อความไม่สำเร็จ")
         return
     n = len(lines)
     grid = [list(line) for line in lines] # แปลงจากสตริงเป็น ['R', '.', '.', '.']
@@ -30,7 +30,7 @@ def checkmate(board):
         return
 # --------------------------------------------------------------------------
     kr, kc = king_pos
-
+    enemy_pieces = ('P', 'B', 'R', 'Q')
     diag_dirs = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
     for dr, dc in diag_dirs:
         r, c = kr + dr, kc + dc
@@ -39,14 +39,14 @@ def checkmate(board):
             piece = grid[r][c]
             time.sleep(0.5)  # เพิ่มการหน่วงเวลา 0.5 วินาที  
             print(f"Checking position ({r}, {c}): {piece}")
-            if piece != '.':
+            if piece in enemy_pieces:
                 if piece in ('Q', 'B'):
                     print("Success")
                     return
                 if step == 1 and dr == 1 and piece == 'P':
                     print("Success")
                     return
-                break
+                break # เจอหมากศัตรูที่โจมตีไม่ได้ (เช่น Rook) บังสายตาอยู่
             r += dr
             c += dc
             step += 1
@@ -60,7 +60,7 @@ def checkmate(board):
             piece = grid[r][c]
             time.sleep(0.5)  # เพิ่มการหน่วงเวลา 0.5 วินาที  
             print(f"Checking position ({r}, {c}): {piece}")
-            if piece != '.':
+            if piece in enemy_pieces:
                 if piece in ('Q', 'R'):
                     print("Success")
                     return
