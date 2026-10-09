@@ -4,11 +4,11 @@ def print_board_table(grid):
     print()
     print("Current Board State:")
     n = len(grid)
-    # พิมพ์เลขคอลัมน์ด้านบน (เปลี่ยนช่องว่างจาก 1 เคาะเป็น 2 เคาะ เพื่อให้ตรงกับตัวหมาก)
+    # พิมพ์เลขคอลัมน์ด้านบน (เป็น 2 เคาะ เพื่อให้ตรงกับตัวหมาก)
     col_header = "    " + "  ".join(str(c) for c in range(n))
     print(col_header)
     
-    # ปรับเส้นขอบกระดานให้กว้างคลุมพอดีกับสัดส่วนของตาราง
+    
     border = "  +" + "-" * (n * 3 + 1) + "+"
     print(border)
 

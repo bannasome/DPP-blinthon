@@ -28,3 +28,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# python main.py board_check.chess board_invalid.chess board_noking.chess board_safe.chess
